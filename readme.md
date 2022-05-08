@@ -29,14 +29,17 @@ Next install python interpreter and required libraries using:
 $ pip install $dependencyName
 ```
 
-Now everything is prepared. To run this project use:
+To run this project use:
 ```
 $ jupyter notebook
 ```
 
-Use notebooks in the following order: 
-1. `project_1_data_preparation.ipynb`
-2. `project_1_recommender_and_evaluation.ipynb`
+Now everything is prepared. Use notebooks in the given order: 
+1. project_1_data_preparation.ipynb
+2. project_1_recommender_and_evaluation.ipynb
 
 
 ## Scores
+![evaluated data](https://raw.githubusercontent.com/kabix09/HotelRecommender/master/img/recommender_data_preparation.PNG)
+
+![final score](https://raw.githubusercontent.com/kabix09/HotelRecommender/master/img/recommender_score_final_evaluation.PNG)
