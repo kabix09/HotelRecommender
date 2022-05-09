@@ -3,6 +3,8 @@ Recommender system for the hotel reservation. The goal of this project was to ac
 
 Author: [Jakub Fiturski](https://github.com/kabix09/)
 
+Link to [project](https://github.com/kabix09/HotelRecommender/)
+
 ## Table of contents
 * [Project description](#project-description)
 * [Aim of the project](#aim-of-the-project)
@@ -57,6 +59,4 @@ Now everything is prepared. Use notebooks in the given order:
 
 
 ## Scores
-![evaluated data](https://raw.githubusercontent.com/kabix09/HotelRecommender/master/img/recommender_data_preparation.PNG)
-
 ![final score](https://raw.githubusercontent.com/kabix09/HotelRecommender/master/img/recommender_score_final_evaluation.PNG)
