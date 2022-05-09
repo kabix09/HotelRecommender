@@ -14577,7 +14577,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -14620,7 +14620,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;hotel_data&quot;</span><span class="p">)</span>
@@ -14911,7 +14911,7 @@ Design numerical user features based on user reservations. Code the following me
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">probability_distribution</span><span class="p">(</span><span class="n">interactions_df</span><span class="p">):</span>
@@ -14922,23 +14922,23 @@ Design numerical user features based on user reservations. Code the following me
     <span class="n">inter_df_copy</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     
     <span class="c1"># Calculate the probability distribution for every possible choice</span>
-    <span class="k">for</span> <span class="n">bucket_feature</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="s1">&#39;length_of_stay_bucket&#39;</span><span class="p">,</span> <span class="s1">&#39;rate_plan&#39;</span><span class="p">,</span> <span class="s1">&#39;room_segment&#39;</span><span class="p">,</span> <span class="s1">&#39;n_people_bucket&#39;</span><span class="p">,</span> <span class="s1">&#39;weekend_stay&#39;</span><span class="p">]:</span>
-        <span class="n">feature_df</span> <span class="o">=</span> <span class="n">inter_df_copy</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">bucket_feature</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">]]</span>
-        <span class="n">feature_df</span> <span class="o">=</span> <span class="n">inter_df_copy</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">bucket_feature</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-        <span class="n">feature_df</span> <span class="o">=</span> <span class="n">feature_df</span> <span class="o">/</span> <span class="n">feature_df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Summed choices dive by row sum which is equal to number of interacion of each user</span>
-        <span class="n">feature_df</span> <span class="o">=</span> <span class="n">feature_df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#     for bucket_feature in [&#39;term&#39;, &#39;length_of_stay_bucket&#39;, &#39;rate_plan&#39;, &#39;room_segment&#39;, &#39;n_people_bucket&#39;, &#39;weekend_stay&#39;]:</span>
+<span class="c1">#         feature_df = inter_df_copy.loc[:, [&#39;user_id&#39;, bucket_feature, &#39;val&#39;]]</span>
+<span class="c1">#         feature_df = inter_df_copy.pivot_table(index=&#39;user_id&#39;, columns=bucket_feature, values=&#39;val&#39;, aggfunc=&#39;count&#39;)</span>
+<span class="c1">#         feature_df = feature_df / feature_df.sum(axis=1).values.reshape(-1, 1)  # Summed choices dive by row sum which is equal to number of interacion of each user</span>
+<span class="c1">#         feature_df = feature_df.rename_axis(None, axis=1).fillna(0)</span>
         
-        <span class="c1"># Make sure that all choices are included, if not add them as new column with deffault value set to 0</span>
-        <span class="n">missing_elements</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">inter_df_copy</span><span class="p">[</span><span class="n">bucket_feature</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">inter_df_copy</span><span class="p">[</span><span class="n">bucket_feature</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
-        <span class="n">feature_df</span><span class="p">[</span><span class="n">missing_elements</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#         # Make sure that all choices are included, if not add them as new column with deffault value set to 0</span>
+<span class="c1">#         missing_elements = list(set(inter_df_copy[bucket_feature].unique().categories.tolist())-set(inter_df_copy[bucket_feature].unique()))</span>
+<span class="c1">#         feature_df[missing_elements] = 0</span>
         
-        <span class="n">feature_df</span> <span class="o">=</span> <span class="n">feature_df</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;user_&#39;</span> <span class="o">+</span> <span class="n">bucket_feature</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
-        <span class="n">users_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">users_df</span><span class="p">,</span> <span class="n">feature_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="c1">#         feature_df = feature_df.add_prefix(&#39;user_&#39; + bucket_feature + &#39;_&#39;)</span>
+<span class="c1">#         users_df = pd.merge(users_df, feature_df, on=&#39;user_id&#39;, how=&quot;left&quot;)</span>
 
     <span class="c1"># Calculate the average of numerical buckets choice for every user</span>
     <span class="n">numerical_buckets</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;length_of_stay_bucket&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;[0-1]&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;[2-3]&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;[4-7]&#39;</span><span class="p">:</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s1">&#39;[8-inf]&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
-        <span class="s1">&#39;room_segment&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;[0-160]&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;[160-260]&#39;</span><span class="p">:</span> <span class="mi">210</span><span class="p">,</span> <span class="s1">&#39;[260-360]&#39;</span><span class="p">:</span> <span class="mi">310</span><span class="p">,</span> <span class="s1">&#39;[360-500]&#39;</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span> <span class="s1">&#39;[500-900]&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">},</span>
+        <span class="s1">&#39;room_segment&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;[0-160]&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;[160-260]&#39;</span><span class="p">:</span> <span class="mi">210</span><span class="p">,</span> <span class="s1">&#39;[260-360]&#39;</span><span class="p">:</span> <span class="mi">310</span><span class="p">,</span> <span class="s1">&#39;[360-500]&#39;</span><span class="p">:</span> <span class="mi">430</span><span class="p">,</span> <span class="s1">&#39;[500-900]&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">},</span>
         <span class="s1">&#39;n_people_bucket&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;[1-1]&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;[2-2]&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;[3-4]&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s1">&#39;[5-inf]&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
     <span class="p">}</span>
 
@@ -14995,7 +14995,7 @@ Design numerical user features based on user reservations. Code the following me
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[&#39;user_term_WinterVacation&#39;, &#39;user_term_Easter&#39;, &#39;user_term_OffSeason&#39;, &#39;user_term_HighSeason&#39;, &#39;user_term_LowSeason&#39;, &#39;user_term_MayLongWeekend&#39;, &#39;user_term_NewYear&#39;, &#39;user_term_Christmas&#39;, &#39;user_length_of_stay_bucket_[0-1]&#39;, &#39;user_length_of_stay_bucket_[2-3]&#39;, &#39;user_length_of_stay_bucket_[4-7]&#39;, &#39;user_length_of_stay_bucket_[8-inf]&#39;, &#39;user_rate_plan_Standard&#39;, &#39;user_rate_plan_Nonref&#39;, &#39;user_room_segment_[0-160]&#39;, &#39;user_room_segment_[160-260]&#39;, &#39;user_room_segment_[260-360]&#39;, &#39;user_room_segment_[360-500]&#39;, &#39;user_room_segment_[500-900]&#39;, &#39;user_n_people_bucket_[1-1]&#39;, &#39;user_n_people_bucket_[2-2]&#39;, &#39;user_n_people_bucket_[3-4]&#39;, &#39;user_n_people_bucket_[5-inf]&#39;, &#39;user_weekend_stay_True&#39;, &#39;user_weekend_stay_False&#39;, &#39;mean_length_of_stay_bucket&#39;, &#39;mean_room_segment&#39;, &#39;mean_n_people_bucket&#39;]
+<pre>[&#39;mean_length_of_stay_bucket&#39;, &#39;mean_room_segment&#39;, &#39;mean_n_people_bucket&#39;]
 </pre>
 </div>
 </div>
@@ -15027,23 +15027,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr style="text-align: right;">
       <th></th>
       <th>user_id</th>
-      <th>user_term_WinterVacation</th>
-      <th>user_term_Easter</th>
-      <th>user_term_OffSeason</th>
-      <th>user_term_HighSeason</th>
-      <th>user_term_LowSeason</th>
-      <th>user_term_MayLongWeekend</th>
-      <th>user_term_NewYear</th>
-      <th>user_term_Christmas</th>
-      <th>user_length_of_stay_bucket_[0-1]</th>
-      <th>...</th>
-      <th>user_room_segment_[500-900]</th>
-      <th>user_n_people_bucket_[1-1]</th>
-      <th>user_n_people_bucket_[2-2]</th>
-      <th>user_n_people_bucket_[3-4]</th>
-      <th>user_n_people_bucket_[5-inf]</th>
-      <th>user_weekend_stay_True</th>
-      <th>user_weekend_stay_False</th>
       <th>mean_length_of_stay_bucket</th>
       <th>mean_room_segment</th>
       <th>mean_n_people_bucket</th>
@@ -15053,23 +15036,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0.090909</td>
-      <td>0.0</td>
-      <td>0.681818</td>
-      <td>0.090909</td>
-      <td>0.136364</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.727273</td>
-      <td>0.181818</td>
-      <td>0.090909</td>
-      <td>0.772727</td>
-      <td>0.227273</td>
       <td>3.136364</td>
       <td>223.636364</td>
       <td>2.727273</td>
@@ -15077,23 +15043,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>40</th>
       <td>50</td>
-      <td>0.043478</td>
-      <td>0.0</td>
-      <td>0.434783</td>
-      <td>0.304348</td>
-      <td>0.217391</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.173913</td>
-      <td>0.521739</td>
-      <td>0.304348</td>
-      <td>0.782609</td>
-      <td>0.217391</td>
       <td>1.847826</td>
       <td>253.478261</td>
       <td>4.304348</td>
@@ -15101,23 +15050,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>321</th>
       <td>706</td>
-      <td>0.095238</td>
-      <td>0.0</td>
-      <td>0.511905</td>
-      <td>0.190476</td>
-      <td>0.142857</td>
-      <td>0.047619</td>
-      <td>0.011905</td>
-      <td>0.0</td>
-      <td>0.297619</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.120482</td>
-      <td>0.156627</td>
-      <td>0.590361</td>
-      <td>0.132530</td>
-      <td>0.583333</td>
-      <td>0.416667</td>
       <td>1.500000</td>
       <td>210.000000</td>
       <td>3.500000</td>
@@ -15125,23 +15057,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>547</th>
       <td>115</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.500000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.500000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
       <td>1.500000</td>
       <td>210.000000</td>
       <td>2.000000</td>
@@ -15149,23 +15064,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>1270</th>
       <td>1736</td>
-      <td>0.034483</td>
-      <td>0.0</td>
-      <td>0.482759</td>
-      <td>0.206897</td>
-      <td>0.275862</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.241379</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.379310</td>
-      <td>0.413793</td>
-      <td>0.206897</td>
-      <td>0.000000</td>
-      <td>0.448276</td>
-      <td>0.551724</td>
       <td>5.500000</td>
       <td>210.000000</td>
       <td>3.500000</td>
@@ -15173,23 +15071,6 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>2785</th>
       <td>96</td>
-      <td>0.090909</td>
-      <td>0.0</td>
-      <td>0.681818</td>
-      <td>0.136364</td>
-      <td>0.045455</td>
-      <td>0.045455</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.272727</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.045455</td>
-      <td>0.272727</td>
-      <td>0.590909</td>
-      <td>0.090909</td>
-      <td>0.727273</td>
-      <td>0.272727</td>
       <td>0.500000</td>
       <td>210.000000</td>
       <td>3.500000</td>
@@ -15197,30 +15078,12 @@ Design numerical user features based on user reservations. Code the following me
     <tr>
       <th>11527</th>
       <td>7779</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.500000</td>
-      <td>0.000000</td>
-      <td>0.500000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.750000</td>
-      <td>0.250000</td>
-      <td>0.750000</td>
-      <td>0.250000</td>
       <td>1.500000</td>
       <td>80.000000</td>
       <td>2.000000</td>
     </tr>
   </tbody>
 </table>
-<p>7 rows × 29 columns</p>
 </div>
 </div>
 
@@ -15250,7 +15113,7 @@ Code the prepare_items_df method which will be used in the recommender fit and r
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">item_numerical_features</span><span class="p">(</span><span class="n">interactions_df</span><span class="p">):</span>
@@ -15594,7 +15457,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
@@ -15877,7 +15740,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">items_df</span> <span class="o">=</span> <span class="n">interactions_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">base_item_features</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -15893,7 +15756,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit method</span>
@@ -15911,7 +15774,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Recommender method</span>
@@ -15975,10 +15838,10 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>0</th>
       <td>1.0</td>
-      <td>61</td>
-      <td>0.99366</td>
+      <td>55</td>
+      <td>0.983043</td>
       <td>OffSeason</td>
-      <td>[4-7]</td>
+      <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
@@ -15987,11 +15850,11 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>1</th>
       <td>1.0</td>
-      <td>55</td>
-      <td>0.992364</td>
+      <td>32</td>
+      <td>0.974681</td>
       <td>OffSeason</td>
       <td>[2-3]</td>
-      <td>Nonref</td>
+      <td>Standard</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
@@ -15999,32 +15862,20 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>2</th>
       <td>1.0</td>
-      <td>51</td>
-      <td>0.991807</td>
-      <td>OffSeason</td>
+      <td>142</td>
+      <td>0.960618</td>
+      <td>LowSeason</td>
       <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
-      <td>[3-4]</td>
+      <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
-      <td>22</td>
-      <td>0.99057</td>
-      <td>OffSeason</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
-      <td>[160-260]</td>
-      <td>[3-4]</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
       <td>23</td>
-      <td>0.990513</td>
+      <td>0.95424</td>
       <td>OffSeason</td>
       <td>[4-7]</td>
       <td>Standard</td>
@@ -16033,13 +15884,25 @@ Code the content-based recommender. User features should be calculated within th
       <td>True</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>22</td>
+      <td>0.952933</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Standard</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
+    </tr>
+    <tr>
       <th>5</th>
       <td>1.0</td>
-      <td>76</td>
-      <td>0.984553</td>
+      <td>14</td>
+      <td>0.942694</td>
       <td>OffSeason</td>
       <td>[4-7]</td>
-      <td>Nonref</td>
+      <td>Standard</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
@@ -16047,11 +15910,11 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>6</th>
       <td>1.0</td>
-      <td>14</td>
-      <td>0.982743</td>
+      <td>51</td>
+      <td>0.940576</td>
       <td>OffSeason</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
@@ -16059,11 +15922,11 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>7</th>
       <td>1.0</td>
-      <td>32</td>
-      <td>0.979197</td>
+      <td>61</td>
+      <td>0.936077</td>
       <td>OffSeason</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
+      <td>[4-7]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
@@ -16071,33 +15934,33 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>8</th>
       <td>1.0</td>
-      <td>24</td>
-      <td>0.973556</td>
+      <td>76</td>
+      <td>0.931407</td>
       <td>OffSeason</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
-      <td>[260-360]</td>
+      <td>[4-7]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>9</th>
       <td>1.0</td>
-      <td>6</td>
-      <td>0.971056</td>
-      <td>OffSeason</td>
+      <td>157</td>
+      <td>0.920668</td>
+      <td>LowSeason</td>
       <td>[2-3]</td>
       <td>Standard</td>
-      <td>[260-360]</td>
-      <td>[5-inf]</td>
+      <td>[160-260]</td>
+      <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>10</th>
       <td>2.0</td>
-      <td>1</td>
-      <td>0.999096</td>
-      <td>WinterVacation</td>
+      <td>22</td>
+      <td>0.882273</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Standard</td>
       <td>[160-260]</td>
@@ -16107,9 +15970,21 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>11</th>
       <td>2.0</td>
-      <td>113</td>
-      <td>0.714706</td>
-      <td>WinterVacation</td>
+      <td>55</td>
+      <td>0.866777</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
+      <td>[2-2]</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2.0</td>
+      <td>51</td>
+      <td>0.84154</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
@@ -16117,25 +15992,13 @@ Code the content-based recommender. User features should be calculated within th
       <td>True</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>2.0</td>
-      <td>44</td>
-      <td>0.409444</td>
-      <td>WinterVacation</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
-      <td>[160-260]</td>
-      <td>[2-2]</td>
-      <td>True</td>
-    </tr>
-    <tr>
       <th>13</th>
       <td>2.0</td>
-      <td>60</td>
-      <td>0.24415</td>
-      <td>WinterVacation</td>
+      <td>32</td>
+      <td>0.813456</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
-      <td>Nonref</td>
+      <td>Standard</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
@@ -16143,21 +16006,21 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>14</th>
       <td>2.0</td>
-      <td>376</td>
-      <td>0.083213</td>
-      <td>WinterVacation</td>
+      <td>211</td>
+      <td>0.776873</td>
+      <td>HighSeason</td>
       <td>[2-3]</td>
-      <td>Standard</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
-      <td>[3-4]</td>
-      <td>False</td>
+      <td>[2-2]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>15</th>
       <td>2.0</td>
-      <td>159</td>
-      <td>0.078237</td>
-      <td>LowSeason</td>
+      <td>9</td>
+      <td>0.775541</td>
+      <td>HighSeason</td>
       <td>[2-3]</td>
       <td>Standard</td>
       <td>[160-260]</td>
@@ -16167,35 +16030,35 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>16</th>
       <td>2.0</td>
-      <td>558</td>
-      <td>0.060205</td>
-      <td>WinterVacation</td>
-      <td>[2-3]</td>
-      <td>Nonref</td>
+      <td>70</td>
+      <td>0.70174</td>
+      <td>HighSeason</td>
+      <td>[4-7]</td>
+      <td>Standard</td>
       <td>[160-260]</td>
-      <td>[1-1]</td>
+      <td>[3-4]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>17</th>
       <td>2.0</td>
-      <td>538</td>
-      <td>0.060205</td>
-      <td>WinterVacation</td>
+      <td>142</td>
+      <td>0.700704</td>
+      <td>LowSeason</td>
       <td>[2-3]</td>
-      <td>Standard</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
-      <td>[1-1]</td>
+      <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>18</th>
       <td>2.0</td>
-      <td>9</td>
-      <td>0.05914</td>
-      <td>HighSeason</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
+      <td>76</td>
+      <td>0.699486</td>
+      <td>OffSeason</td>
+      <td>[4-7]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
@@ -16203,9 +16066,9 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>19</th>
       <td>2.0</td>
-      <td>133</td>
-      <td>0.057919</td>
-      <td>WinterVacation</td>
+      <td>57</td>
+      <td>0.697779</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
@@ -16215,57 +16078,33 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>20</th>
       <td>3.0</td>
-      <td>2</td>
-      <td>0.998213</td>
-      <td>WinterVacation</td>
+      <td>51</td>
+      <td>0.904137</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
-      <td>Standard</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
-      <td>[2-2]</td>
-      <td>False</td>
+      <td>[3-4]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>21</th>
       <td>3.0</td>
-      <td>459</td>
-      <td>0.66313</td>
-      <td>WinterVacation</td>
+      <td>55</td>
+      <td>0.893715</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>22</th>
       <td>3.0</td>
-      <td>376</td>
-      <td>0.47347</td>
-      <td>WinterVacation</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
-      <td>[160-260]</td>
-      <td>[3-4]</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>3.0</td>
-      <td>133</td>
-      <td>0.428176</td>
-      <td>WinterVacation</td>
-      <td>[2-3]</td>
-      <td>Nonref</td>
-      <td>[160-260]</td>
-      <td>[3-4]</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>3.0</td>
-      <td>44</td>
-      <td>0.396923</td>
-      <td>WinterVacation</td>
+      <td>32</td>
+      <td>0.877667</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Standard</td>
       <td>[160-260]</td>
@@ -16273,25 +16112,49 @@ Code the content-based recommender. User features should be calculated within th
       <td>True</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>23</th>
       <td>3.0</td>
-      <td>123</td>
-      <td>0.29187</td>
-      <td>HighSeason</td>
+      <td>22</td>
+      <td>0.874521</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
       <td>Standard</td>
       <td>[160-260]</td>
-      <td>[2-2]</td>
-      <td>False</td>
+      <td>[3-4]</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>3.0</td>
+      <td>24</td>
+      <td>0.719829</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Standard</td>
+      <td>[260-360]</td>
+      <td>[3-4]</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>3.0</td>
+      <td>199</td>
+      <td>0.705896</td>
+      <td>LowSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>26</th>
       <td>3.0</td>
-      <td>229</td>
-      <td>0.281263</td>
-      <td>LowSeason</td>
+      <td>53</td>
+      <td>0.70287</td>
+      <td>OffSeason</td>
       <td>[2-3]</td>
-      <td>Standard</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>False</td>
@@ -16299,47 +16162,47 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>27</th>
       <td>3.0</td>
-      <td>282</td>
-      <td>0.147243</td>
-      <td>HighSeason</td>
-      <td>[2-3]</td>
-      <td>Standard</td>
+      <td>153</td>
+      <td>0.688576</td>
+      <td>OffSeason</td>
+      <td>[0-1]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>3.0</td>
+      <td>61</td>
+      <td>0.673793</td>
+      <td>OffSeason</td>
+      <td>[4-7]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>3.0</td>
-      <td>172</td>
-      <td>0.142585</td>
-      <td>HighSeason</td>
-      <td>[2-3]</td>
-      <td>Nonref</td>
-      <td>[160-260]</td>
-      <td>[2-2]</td>
-      <td>False</td>
-    </tr>
-    <tr>
       <th>29</th>
       <td>3.0</td>
-      <td>264</td>
-      <td>0.140085</td>
+      <td>115</td>
+      <td>0.673517</td>
       <td>LowSeason</td>
-      <td>[2-3]</td>
+      <td>[4-7]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>30</th>
       <td>4.0</td>
-      <td>3</td>
-      <td>0.999762</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
+      <td>51</td>
+      <td>0.943346</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
@@ -16347,47 +16210,47 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>31</th>
       <td>4.0</td>
-      <td>125</td>
-      <td>0.645954</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>55</td>
+      <td>0.866093</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
       <td>Nonref</td>
-      <td>[160-260]</td>
-      <td>[3-4]</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>4.0</td>
-      <td>68</td>
-      <td>0.563866</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>32</th>
       <td>4.0</td>
-      <td>43</td>
-      <td>0.531787</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>9</td>
+      <td>0.818858</td>
+      <td>HighSeason</td>
+      <td>[2-3]</td>
       <td>Standard</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
-      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>4.0</td>
+      <td>22</td>
+      <td>0.804239</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Standard</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>34</th>
       <td>4.0</td>
-      <td>437</td>
-      <td>0.404063</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Nonref</td>
+      <td>32</td>
+      <td>0.799987</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Standard</td>
       <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
@@ -16395,11 +16258,11 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>35</th>
       <td>4.0</td>
-      <td>47</td>
-      <td>0.365084</td>
-      <td>WinterVacation</td>
-      <td>[8-inf]</td>
-      <td>Standard</td>
+      <td>78</td>
+      <td>0.785414</td>
+      <td>HighSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>True</td>
@@ -16407,10 +16270,10 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>36</th>
       <td>4.0</td>
-      <td>543</td>
-      <td>0.345063</td>
-      <td>WinterVacation</td>
-      <td>[0-1]</td>
+      <td>70</td>
+      <td>0.768888</td>
+      <td>HighSeason</td>
+      <td>[4-7]</td>
       <td>Standard</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
@@ -16419,158 +16282,158 @@ Code the content-based recommender. User features should be calculated within th
     <tr>
       <th>37</th>
       <td>4.0</td>
-      <td>45</td>
-      <td>0.311665</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
+      <td>142</td>
+      <td>0.760156</td>
+      <td>LowSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
       <td>[160-260]</td>
-      <td>[1-1]</td>
+      <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>38</th>
       <td>4.0</td>
-      <td>492</td>
-      <td>0.310815</td>
-      <td>WinterVacation</td>
+      <td>14</td>
+      <td>0.758909</td>
+      <td>OffSeason</td>
       <td>[4-7]</td>
+      <td>Standard</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>4.0</td>
+      <td>235</td>
+      <td>0.732698</td>
+      <td>LowSeason</td>
+      <td>[2-3]</td>
       <td>Nonref</td>
       <td>[160-260]</td>
       <td>[3-4]</td>
       <td>False</td>
     </tr>
     <tr>
-      <th>39</th>
-      <td>4.0</td>
-      <td>544</td>
-      <td>0.303389</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Nonref</td>
-      <td>[160-260]</td>
-      <td>[1-1]</td>
-      <td>True</td>
-    </tr>
-    <tr>
       <th>40</th>
       <td>5.0</td>
-      <td>4</td>
-      <td>0.805645</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>9</td>
+      <td>0.828608</td>
+      <td>HighSeason</td>
+      <td>[2-3]</td>
       <td>Standard</td>
-      <td>[0-160]</td>
-      <td>[2-2]</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>41</th>
       <td>5.0</td>
-      <td>478</td>
-      <td>0.665935</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>78</td>
+      <td>0.821192</td>
+      <td>HighSeason</td>
+      <td>[2-3]</td>
       <td>Nonref</td>
-      <td>[0-160]</td>
-      <td>[2-2]</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>42</th>
       <td>5.0</td>
-      <td>554</td>
-      <td>0.531007</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>22</td>
+      <td>0.804433</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
       <td>Standard</td>
-      <td>[260-360]</td>
-      <td>[2-2]</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>43</th>
       <td>5.0</td>
-      <td>716</td>
-      <td>0.52004</td>
-      <td>WinterVacation</td>
-      <td>[0-1]</td>
-      <td>Nonref</td>
-      <td>[0-160]</td>
+      <td>32</td>
+      <td>0.79233</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Standard</td>
+      <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>44</th>
       <td>5.0</td>
-      <td>560</td>
-      <td>0.480694</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
+      <td>55</td>
+      <td>0.784008</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
       <td>Nonref</td>
-      <td>[0-160]</td>
+      <td>[160-260]</td>
       <td>[2-2]</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>45</th>
       <td>5.0</td>
-      <td>708</td>
-      <td>0.44095</td>
-      <td>WinterVacation</td>
-      <td>[0-1]</td>
-      <td>Standard</td>
-      <td>[0-160]</td>
-      <td>[2-2]</td>
-      <td>False</td>
+      <td>51</td>
+      <td>0.773358</td>
+      <td>OffSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>46</th>
       <td>5.0</td>
-      <td>706</td>
-      <td>0.41269</td>
-      <td>WinterVacation</td>
+      <td>423</td>
+      <td>0.752956</td>
+      <td>OffSeason</td>
       <td>[0-1]</td>
-      <td>Standard</td>
-      <td>[260-360]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>47</th>
       <td>5.0</td>
-      <td>666</td>
-      <td>0.400403</td>
-      <td>WinterVacation</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
-      <td>[260-360]</td>
-      <td>[2-2]</td>
-      <td>False</td>
+      <td>273</td>
+      <td>0.74129</td>
+      <td>OffSeason</td>
+      <td>[0-1]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
+      <td>[3-4]</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>48</th>
       <td>5.0</td>
-      <td>86</td>
-      <td>0.396161</td>
-      <td>LowSeason</td>
-      <td>[4-7]</td>
-      <td>Standard</td>
-      <td>[0-160]</td>
+      <td>211</td>
+      <td>0.731347</td>
+      <td>HighSeason</td>
+      <td>[2-3]</td>
+      <td>Nonref</td>
+      <td>[160-260]</td>
       <td>[2-2]</td>
       <td>True</td>
     </tr>
     <tr>
       <th>49</th>
       <td>5.0</td>
-      <td>573</td>
-      <td>0.381822</td>
-      <td>WinterVacation</td>
-      <td>[0-1]</td>
+      <td>61</td>
+      <td>0.701591</td>
+      <td>OffSeason</td>
+      <td>[4-7]</td>
       <td>Nonref</td>
-      <td>[0-160]</td>
+      <td>[160-260]</td>
       <td>[2-2]</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
   </tbody>
 </table>
@@ -16599,7 +16462,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">evaluation_and_testing.testing</span> <span class="kn">import</span> <span class="n">evaluate_train_test_split_implicit</span>
@@ -16617,7 +16480,7 @@ Code the content-based recommender. User features should be calculated within th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">hp</span><span class="p">,</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">Trials</span>
@@ -16934,7 +16797,7 @@ Run the final evaluation of your recommender and present its results against the
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb_user_item_recommender</span> <span class="o">=</span> <span class="n">LinearRegressionCBUIRecommender</span><span class="p">(</span>
@@ -17010,7 +16873,7 @@ Run the final evaluation of your recommender and present its results against the
       <td>0.049219</td>
       <td>0.094502</td>
       <td>0.113016</td>
-      <td>0.131864</td>
+      <td>0.131932</td>
     </tr>
   </tbody>
 </table>
@@ -17097,14 +16960,14 @@ Run the final evaluation of your recommender and present its results against the
     <tr>
       <th>0</th>
       <td>RandomForestCBUIRecommender</td>
-      <td>0.04854</td>
-      <td>0.130346</td>
-      <td>0.172777</td>
-      <td>0.227766</td>
-      <td>0.04854</td>
-      <td>0.094465</td>
-      <td>0.112293</td>
-      <td>0.129876</td>
+      <td>0.049219</td>
+      <td>0.130007</td>
+      <td>0.177189</td>
+      <td>0.245078</td>
+      <td>0.049219</td>
+      <td>0.094502</td>
+      <td>0.114197</td>
+      <td>0.135766</td>
     </tr>
   </tbody>
 </table>
@@ -17122,7 +16985,7 @@ Run the final evaluation of your recommender and present its results against the
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb_user_item_recommender</span> <span class="o">=</span> <span class="n">XGBoostCBUIRecommender</span><span class="p">(</span>
@@ -17191,14 +17054,14 @@ Run the final evaluation of your recommender and present its results against the
     <tr>
       <th>0</th>
       <td>XGBoostCBUIRecommender</td>
-      <td>0.043449</td>
-      <td>0.107264</td>
-      <td>0.162254</td>
-      <td>0.236253</td>
-      <td>0.043449</td>
-      <td>0.082112</td>
-      <td>0.103935</td>
-      <td>0.128293</td>
+      <td>0.049219</td>
+      <td>0.130007</td>
+      <td>0.177189</td>
+      <td>0.247115</td>
+      <td>0.049219</td>
+      <td>0.094502</td>
+      <td>0.114197</td>
+      <td>0.136453</td>
     </tr>
   </tbody>
 </table>
@@ -17216,7 +17079,7 @@ Run the final evaluation of your recommender and present its results against the
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">recommenders.amazon_recommender</span> <span class="kn">import</span> <span class="n">AmazonRecommender</span>
@@ -17310,10 +17173,10 @@ Run the final evaluation of your recommender and present its results against the
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tts_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">xgboost_cbui_tts_results</span><span class="p">,</span> <span class="n">linear_cbui_tts_results</span><span class="p">,</span> <span class="n">randomForest_cbui_tts_results</span><span class="p">,</span> <span class="n">amazon_tts_results</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tts_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">xgboost_cbui_tts_results</span><span class="p">,</span> <span class="n">randomForest_cbui_tts_results</span><span class="p">,</span> <span class="n">linear_cbui_tts_results</span><span class="p">,</span> <span class="n">amazon_tts_results</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">tts_results</span><span class="p">)</span>
 </pre></div>
 
@@ -17370,17 +17233,29 @@ Run the final evaluation of your recommender and present its results against the
     <tr>
       <th>0</th>
       <td>XGBoostCBUIRecommender</td>
-      <td>0.043449</td>
-      <td>0.107264</td>
-      <td>0.162254</td>
-      <td>0.236253</td>
-      <td>0.043449</td>
-      <td>0.082112</td>
-      <td>0.103935</td>
-      <td>0.128293</td>
+      <td>0.049219</td>
+      <td>0.130007</td>
+      <td>0.177189</td>
+      <td>0.247115</td>
+      <td>0.049219</td>
+      <td>0.094502</td>
+      <td>0.114197</td>
+      <td>0.136453</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>RandomForestCBUIRecommender</td>
+      <td>0.049219</td>
+      <td>0.130007</td>
+      <td>0.177189</td>
+      <td>0.245078</td>
+      <td>0.049219</td>
+      <td>0.094502</td>
+      <td>0.114197</td>
+      <td>0.135766</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>LinearRegressionCBUIRecommender</td>
       <td>0.049219</td>
       <td>0.130007</td>
@@ -17389,19 +17264,7 @@ Run the final evaluation of your recommender and present its results against the
       <td>0.049219</td>
       <td>0.094502</td>
       <td>0.113016</td>
-      <td>0.131864</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>RandomForestCBUIRecommender</td>
-      <td>0.048540</td>
-      <td>0.130346</td>
-      <td>0.172777</td>
-      <td>0.227766</td>
-      <td>0.048540</td>
-      <td>0.094465</td>
-      <td>0.112293</td>
-      <td>0.129876</td>
+      <td>0.131932</td>
     </tr>
     <tr>
       <th>3</th>
